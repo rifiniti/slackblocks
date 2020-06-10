@@ -72,7 +72,7 @@ class SectionBlock(Block):
         section = self._attributes()
         section["text"] = self.text._resolve()
         if self.fields:
-            section["fields"] = self.fields
+            section["fields"] = [x._resolve() for x in self.fields]
         if self.accessory:
             section["accessory"] = self.accessory._resolve()
         return section
